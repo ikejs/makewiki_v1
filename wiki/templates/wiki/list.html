@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <body>
+            {%for page in object_list%}
+                <ul>
+                    Title: {{page.title}}<br>
+                    Author: {{page.author}}<br>
+                    Slug: {{page.slug}}<br>
+                    Content: {{page.content}}<br>
+                    Created: {{page.created}}<br>
+                    Modified: {{page.modified}}
+                </ul>
+            {%endfor%}
+    </body>
+</html>
