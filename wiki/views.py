@@ -15,6 +15,15 @@ class PageList(ListView):
     template_name = 'wiki/list.html'
 
 
+    def get(self, request):
+        """ return list of wiki pages """
+        page_list = Page.objects.all()
+        context = {
+            'page_list': page_list
+        }
+        return render(request, 'list.html', context)
+
+
 class PageDetailView(DetailView):
     """
     CHALLENGES:
@@ -34,6 +43,15 @@ class PageDetailView(DetailView):
     """
     model = Page
     template_name = 'wiki/detail.html'
+
+
+    def get(self, request, slug):
+        """ return the specific page by slug """
+        page_object = Page.objects.get(slug=slug)
+        context= {
+            'page': page_object
+        }
+        return render(request, 'page.html', context)
 
 
     def post(self, request, slug):

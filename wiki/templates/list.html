@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    {%for page in page_list%}
+        <div class="card col-md-12 mb-4">
+            <a href="{{page.slug}}"><h3>{{page.title}}</h3></a> <p class="text-muted">by {{page.author}}</p>
+        </div>
+    {%endfor%}
+{% endblock %}
